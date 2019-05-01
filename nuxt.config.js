@@ -25,6 +25,9 @@ module.exports = {
   /*
   ** Build configuration
   */
+  modules: [
+    ['@nuxtjs/axios']
+  ],
   build: {
     transpile: [/^vuetify/],
     plugins: [
@@ -48,6 +51,15 @@ module.exports = {
           })
         ]
       }
+    }
+  },
+  axios: {
+    /* set API_URL environment variable to configure access to the API
+    */
+    baseURL: 'https://jsonplaceholder.typicode.com/',
+    redirectError: {
+      401: '/login',
+      404: '/notfound'
     }
   }
 }
